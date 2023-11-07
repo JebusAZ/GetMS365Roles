@@ -1,0 +1,1 @@
+Get-MsolRole | %{$role = $_.name; Get-MsolRoleMember -RoleObjectId $_.objectid} | select @{Name="Role"; Expression = {$role}}, DisplayName, EmailAddress | Export-csv "C:\Path\To\Folder\file.csv"
